@@ -33,9 +33,14 @@ public class AlertaController {
         return service.cadastrarAlerta(alerta);
     }
 
-    @GetMapping(value = "/{dataHora}/{nivel}")
+    @GetMapping(value = "/buscaNivel/{dataHora}/{nivel}")
     public List<Alerta> buscarPorDataHoraGeracaoENivel(@PathVariable("dataHora") LocalDateTime dataHoraGeracao, @PathVariable("nivel") Integer nivel) {
         return service.buscarPorDataHoraGeracaoENivel(dataHoraGeracao, nivel);
+    }
+
+    @GetMapping(value = "/buscaMensagem/{dataHora}/{mensagem}")
+    public List<Alerta> buscarMensagemEDataHoraVerificacao(@PathVariable("dataHora") LocalDateTime dataHoraVerificacao, @PathVariable("mensagem") String mensagem) {
+        return service.buscarMensagemEDataHoraVerificacao(mensagem, dataHoraVerificacao);
     }
     
 }

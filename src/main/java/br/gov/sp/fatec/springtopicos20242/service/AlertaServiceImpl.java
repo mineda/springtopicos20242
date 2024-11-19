@@ -39,5 +39,9 @@ public class AlertaServiceImpl {
     public List<Alerta> buscarPorDataHoraGeracaoENivel(LocalDateTime dataHoraGeracao, Integer nivel) {
         return repo.findByDataHoraGeracaoGreaterThanAndNivelLessThan(dataHoraGeracao, nivel);
     }
+
+    public List<Alerta> buscarMensagemEDataHoraVerificacao(String mensagem, LocalDateTime dataHoraVerificacao) {
+        return repo.findByMensagemContainsAndDataHoraVerificacaoGreaterThan(mensagem, dataHoraVerificacao);
+    }
     
 }
